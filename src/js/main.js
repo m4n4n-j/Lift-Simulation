@@ -2,11 +2,11 @@ const button = document.querySelector('#button');
 button.addEventListener('click', getUserInput);
 
 function getUserInput() {
-    var elevators = document.querySelector('#text-elevators').value;
-    var floors = document.querySelector('#text-floors').value;
+    let elevators = document.querySelector('#text-elevators').value;
+    let floors = document.querySelector('#text-floors').value;
 
-    //variable that only supports unsigned integers
-    var { elevators, floors } = checkValidInput(elevators, floors);
+    // call check valid input function
+    checkValidInput(elevators, floors);
 
     console.log("elevators = " + elevators);
     console.log("floors = " + floors);
@@ -14,8 +14,8 @@ function getUserInput() {
 }
 
 function checkValidInput(elevators, floors) {
-    var elevatorsInt = parseInt(elevators, 10);
-    var floorsInt = parseInt(floors, 10);
+    let elevatorsInt = parseInt(elevators, 10);
+    let floorsInt = parseInt(floors, 10);
 
     // check for invalid inputs
     if (elevatorsInt < 0) {
