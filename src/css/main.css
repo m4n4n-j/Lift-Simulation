@@ -21,3 +21,20 @@ li{
 form li + li {
   margin-top: 1em; 
 }
+
+.lifts{
+  /* creating a rectangular box vertically placed with black borders */
+  border: 1px solid black;
+  width: 50px;
+  height: 75px;
+  margin-left: 10%;
+  margin-top: 15px;
+}
+
+.floors{
+  /* creating a grey horizontal line which goes through the whole page */
+  border-bottom: 1px solid grey;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 15px;
+}

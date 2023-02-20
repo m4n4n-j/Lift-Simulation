@@ -1,16 +1,28 @@
 const button = document.querySelector('#button');
-button.addEventListener('click', getUserInput);
+button.addEventListener('click', createLiftSimulation);
 
-function getUserInput() {
-    let elevators = document.querySelector('#text-elevators').value;
-    let floors = document.querySelector('#text-floors').value;
+function createLiftSimulation() {
+    elevators = document.querySelector('#text-elevators').value;
+    floors = document.querySelector('#text-floors').value;
 
-    // call check valid input function
-    checkValidInput(elevators, floors);
+    // Get the user input
+    if(!checkValidInput(elevators, floors)){
+        throw new Error("Invalid input");
+    }
 
-    console.log("elevators = " + elevators);
-    console.log("floors = " + floors);
+    // Clean the html page, remove all the elements
+    makeBlankCanvas();
 
+    // call the function to create the canvas
+    // createCanvas(elevators, floors);
+    
+}
+
+function makeBlankCanvas() {
+    let title = document.querySelector('#title');
+    title.innerHTML = " ";
+    let container = document.querySelector('#input-form');
+    container.innerHTML = '';
 }
 
 function checkValidInput(elevators, floors) {
@@ -20,15 +32,19 @@ function checkValidInput(elevators, floors) {
     // check for invalid inputs
     if (elevatorsInt < 0) {
         alert("Please enter a positive number of elevators");
+        return false;
     }
     if (floorsInt < 0) {
         alert("Please enter a positive number of floors");
+        return false;
     }
     if (elevatorsInt % 1 != 0) {
         alert("Please enter the number of elevators as an integer");
+        return false;
     }
     if (floorsInt % 1 != 0) {
         alert("Please enter the number of floors as an integer");
-    }
-    return { elevators, floors };
+        return false;
+    }   
+    return true;
 }
